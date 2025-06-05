@@ -15,14 +15,18 @@ collection = db["todo_items"]
 @app.route("/submittodoitem", methods=["POST"])
 def submit_todo_item():
     item_id = request.form.get("itemId")
+    item_uuid = request.form.get("itemUuid")
+    item_hash = request.form.get("itemHash")
     item_name = request.form.get("itemName")
     item_desc = request.form.get("itemDescription")
 
-    if not item_id or not item_name or not item_desc:
+    if not item_id or not item_uuid or not item_hash or not item_name or not item_desc:
         return jsonify({"status": "error", "message": "Missing fields"}), 400
 
     collection.insert_one({
         "id": item_id,
+        "uuid": item_uuid,
+        "hash": item_hash,
         "name": item_name,
         "description": item_desc
     })

@@ -55,6 +55,8 @@
         <h2>To-Do Item</h2>
         <form action="submittodoitem" method="POST">
             <input type="text" name="itemId" placeholder="Item ID" required>
+            <input type="text" name="itemUuid" placeholder="Item UUID" required>
+            <input type="text" name="itemHash" placeholder="Item Hash" required>
             <input type="text" name="itemName" placeholder="Item Name" required>
             <textarea name="itemDescription" rows="4" placeholder="Item Description" required></textarea>
             <button type="submit">Submit</button>
